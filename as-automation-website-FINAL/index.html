@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AS Automation Company Chennai - PLC, HMI, VFD, Servo, Sensors, SMPS, Encoders. Authorized dealers for Delta, Siemens, Schneider, Mitsubishi, Omron.">
+<title>AS Automation | Industrial Automation Solutions Chennai</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#0a0500;--bg2:#120800;--a:#ff6b00;--a2:#ff8c00;--a3:#ffaa00;--white:#fff;--gray:#9a8878;--border:rgba(255,107,0,.15);--glass:rgba(255,107,0,.05)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--a);border-radius:3px}
+#ldr{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .6s,visibility .6s;animation:ldrAutoHide .6s ease forwards;animation-delay:1.4s}
+#ldr.gone{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes ldrAutoHide{to{opacity:0;visibility:hidden;pointer-events:none}}
+.ldr-g{font-size:52px;color:var(--a);animation:spin 1.5s linear infinite;filter:drop-shadow(0 0 16px rgba(255,107,0,.6))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ldr-t{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:6px;color:var(--a2);text-transform:uppercase}
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:16px 0;transition:all .4s}
+nav.scrolled{background:rgba(10,5,0,.97);backdrop-filter:blur(30px);border-bottom:1px solid var(--border);padding:10px 0}
+.nc{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-box{width:50px;height:50px;background:linear-gradient(135deg,var(--a),#c24f00);border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:18px;color:#fff;animation:lp 3s infinite}
+@keyframes lp{0%,100%{box-shadow:0 0 0 0 rgba(255,107,0,.4)}50%{box-shadow:0 0 0 12px rgba(255,107,0,0)}}
+.logo-txt h1{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1.1}
+.logo-txt span{font-size:9px;color:var(--a2);letter-spacing:3px;text-transform:uppercase;font-weight:600}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;position:relative;padding-bottom:4px;transition:color .25s}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--a),var(--a2));transition:width .3s;border-radius:1px}
+.nav-links a:hover,.nav-links a.active{color:var(--a2)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{padding:11px 26px;background:linear-gradient(135deg,var(--a),#c24f00);color:#fff;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(255,107,0,.35)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,.5)}
+.ham{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 60% 20%,rgba(255,107,0,.09),transparent 65%),linear-gradient(180deg,var(--bg),var(--bg2))}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,0,.03) 1px,transparent 1px);background-size:55px 55px;pointer-events:none}
+.hero-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),var(--a2),transparent);animation:hscan 6s linear infinite;opacity:.25}
+@keyframes hscan{0%{top:0}100%{top:100%}}
+.hero-c{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.25);border-radius:50px;font-size:11px;font-weight:700;color:var(--a2);letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;font-family:'Rajdhani',sans-serif}
+.hero-badge .live{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 2s infinite;box-shadow:0 0 8px #22c55e}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:54px;font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--a2),var(--a),#ff4500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:16px;color:rgba(255,255,255,.62);line-height:1.9;margin-bottom:32px;max-width:490px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-o{padding:15px 32px;background:linear-gradient(135deg,var(--a),#c24f00);color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:9px;box-shadow:0 8px 28px rgba(255,107,0,.4);border:none;cursor:pointer;position:relative;overflow:hidden}
+.btn-o::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.btn-o:hover::before{left:100%}
+.btn-o:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,107,0,.55)}
+.btn-g{padding:15px 32px;background:transparent;color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:9px;border:2px solid rgba(255,255,255,.2)}
+.btn-g:hover{border-color:var(--a);color:var(--a2);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:32px;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,107,0,.2)}
+.h-stat h3{font-family:'Rajdhani',sans-serif;font-size:34px;font-weight:700;color:var(--a2);line-height:1;text-shadow:0 0 20px rgba(255,107,0,.5)}
+.h-stat p{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:5px;font-weight:600}
+.hero-vis{position:relative}
+.hero-main-card{background:linear-gradient(135deg,rgba(255,107,0,.1),rgba(255,107,0,.03));border:1px solid rgba(255,107,0,.22);border-radius:24px;padding:30px;position:relative;overflow:hidden}
+.hero-main-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--a),transparent);animation:card-scan 3s linear infinite}
+@keyframes card-scan{0%{opacity:0;transform:translateX(-100%)}50%{opacity:1}100%{opacity:0;transform:translateX(100%)}}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.b-chip{padding:11px 8px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);border-radius:10px;text-align:center;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--a2);transition:all .3s}
+.b-chip:hover{background:rgba(255,107,0,.2);border-color:var(--a);transform:translateY(-2px)}
+.hero-cfoot{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(255,107,0,.15)}
+.hcf-lbl{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.hcf-val{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff}
+.wa-now{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:#25d366;border-radius:8px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;transition:all .3s}
+.wa-now:hover{background:#1db954;transform:scale(1.04)}
+.fc{position:absolute;background:rgba(10,5,0,.95);border:1px solid rgba(255,107,0,.25);border-radius:14px;padding:14px 18px;z-index:5;min-width:110px}
+.fc.fc1{top:-20px;right:-24px;animation:flt 4s ease-in-out infinite}
+.fc.fc2{bottom:20px;left:-32px;animation:flt 4s ease-in-out infinite 2s}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.fc-val{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--a2);line-height:1}
+.fc-lbl{font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.ticker{background:linear-gradient(90deg,#c24f00,var(--a),var(--a2),var(--a),#c24f00);padding:13px 0;overflow:hidden}
+.ticker-track{display:flex;gap:48px;animation:tick 30s linear infinite;white-space:nowrap}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.t-item{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:14px;flex-shrink:0;color:#fff}
+.t-dot{width:4px;height:4px;background:rgba(255,255,255,.6);border-radius:50%}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.sec-lbl{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--a);margin-bottom:14px;font-family:'Rajdhani',sans-serif}
+.sec-lbl::before,.sec-lbl::after{content:'';width:22px;height:2px;background:linear-gradient(90deg,var(--a),var(--a2));border-radius:1px}
+.sec-title{font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;line-height:1.2;margin-bottom:16px}
+.sec-title span{color:var(--a2)}
+.sec-sub{color:var(--gray);font-size:16px;line-height:1.8}
+section{padding:90px 0}
+.about{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-img-wrap{position:relative}
+.about-img-wrap img{width:100%;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.6);display:block;object-fit:cover;height:420px}
+.about-img-wrap::before{content:'';position:absolute;top:-14px;left:-14px;width:100%;height:100%;border:3px solid rgba(255,107,0,.25);border-radius:22px;z-index:-1}
+.about-badge{position:absolute;bottom:-20px;right:-20px;background:linear-gradient(135deg,var(--a),#c24f00);border-radius:16px;padding:20px 24px;text-align:center;box-shadow:0 16px 40px rgba(255,107,0,.4)}
+.ab-num{font-family:'Rajdhani',sans-serif;font-size:38px;font-weight:700;color:#fff;line-height:1}
+.ab-lbl{font-size:11px;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.about-content p{color:var(--gray);font-size:15px;line-height:1.85;margin-bottom:14px}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.af{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:600}
+.af i{color:var(--a)}
+.brands-sec{padding:50px 0;background:var(--bg2);border-top:1px solid rgba(255,107,0,.12);border-bottom:1px solid rgba(255,107,0,.12)}
+.brands-lbl{text-align:center;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:28px;font-family:'Rajdhani',sans-serif}
+.mq-wrap{overflow:hidden;position:relative}
+.mq-wrap::before,.mq-wrap::after{content:'';position:absolute;top:0;width:120px;height:100%;z-index:2;pointer-events:none}
+.mq-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.mq-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
+.mq-track{display:flex;gap:14px;animation:mq 28s linear infinite}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.brand-tag{padding:14px 30px;background:rgba(255,107,0,.1);border:2px solid rgba(255,107,0,.3);border-radius:10px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;color:var(--a2);white-space:nowrap;transition:all .3s}
+.brand-tag:hover{background:rgba(255,107,0,.2);border-color:var(--a);color:#fff}
+.products{background:var(--bg)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+.prod-card{background:var(--glass);border:1px solid rgba(255,107,0,.12);border-radius:18px;overflow:hidden;transition:all .35s;cursor:pointer}
+.prod-card:hover{border-color:rgba(255,107,0,.4);transform:translateY(-5px);box-shadow:0 24px 60px rgba(255,107,0,.12)}
+.prod-img{position:relative;height:185px;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.prod-card:hover .prod-img img{transform:scale(1.08)}
+.prod-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,5,0,.95),transparent 55%);display:flex;align-items:flex-end;padding:14px;opacity:0;transition:opacity .3s}
+.prod-card:hover .prod-img-ov{opacity:1}
+.prod-wa-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;background:#25d366;border-radius:7px;font-size:12px;font-weight:700;color:#fff;text-decoration:none}
+.prod-icon-badge{position:absolute;top:14px;right:14px;width:38px;height:38px;background:rgba(10,5,0,.9);border:1px solid rgba(255,107,0,.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--a2)}
+.prod-body{padding:18px}
+.prod-body h3{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;margin-bottom:7px}
+.prod-body p{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:12px}
+.prod-tags{display:flex;gap:5px;flex-wrap:wrap}
+.p-tag{padding:3px 9px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);border-radius:4px;font-size:11px;color:var(--a2);font-weight:700}
+.services{background:var(--bg2)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.svc-card{background:var(--glass);border:1px solid rgba(255,107,0,.12);border-radius:18px;padding:28px;transition:all .35s;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--a),var(--a2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.svc-card:hover{border-color:rgba(255,107,0,.3);transform:translateY(-4px)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;color:var(--a);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.svc-icon{width:52px;height:52px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--a);margin-bottom:16px}
+.svc-card h3{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;margin-bottom:10px}
+.svc-card p{font-size:14px;color:var(--gray);line-height:1.7}
+.why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.why-card{padding:26px 20px;background:var(--glass);border:1px solid rgba(255,107,0,.12);border-radius:16px;text-align:center;transition:all .3s}
+.why-card:hover{border-color:rgba(255,107,0,.3);background:rgba(255,107,0,.07);transform:translateY(-4px)}
+.why-card i{font-size:28px;color:var(--a);margin-bottom:14px;display:block}
+.why-card h4{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
+.why-card p{font-size:13px;color:var(--gray);line-height:1.6}
+/* GALLERY WITH REAL PHOTOS */
+.gallery{background:var(--bg2)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.gal-item{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,5,0,.9),rgba(255,107,0,.1));opacity:0;transition:opacity .35s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-zoom{width:48px;height:48px;background:rgba(255,107,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.gal-ov h4{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:#fff;text-align:center;padding:0 12px}
+.gal-ov p{font-size:12px;color:rgba(255,255,255,.7);text-align:center}
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;flex-direction:column;gap:16px}
+.lightbox.active{opacity:1;visibility:visible}
+.lb-img{max-width:90vw;max-height:80vh;border-radius:12px;object-fit:contain;box-shadow:0 0 60px rgba(255,107,0,.2)}
+.lb-close{position:absolute;top:22px;right:22px;background:rgba(255,107,0,.9);border:none;color:#fff;width:46px;height:46px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.lb-close:hover{background:var(--a);transform:rotate(90deg)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,107,0,.7);border:none;color:#fff;width:50px;height:50px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.lb-nav:hover{background:var(--a)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-cap{color:rgba(255,255,255,.8);font-size:14px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-align:center}
+.lb-counter{font-size:12px;color:var(--a2);font-family:'Rajdhani',sans-serif;letter-spacing:2px}
+/* GALLERY THUMBNAILS STRIP */
+.lb-thumbs{display:flex;gap:8px;overflow-x:auto;max-width:90vw;padding:4px;scrollbar-width:thin}
+.lb-thumb{width:60px;height:45px;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all .3s;flex-shrink:0}
+.lb-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.lb-thumb.active,.lb-thumb:hover{border-color:var(--a)}
+/* YOUTUBE */
+.yt-sec{background:var(--bg)}
+.yt-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.yt-content h3{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;margin-bottom:14px}
+.yt-content>p{color:var(--gray);font-size:15px;line-height:1.8;margin-bottom:28px}
+.yt-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.yt-chip{padding:9px 16px;background:rgba(255,0,0,.08);border:1px solid rgba(255,0,0,.2);border-radius:8px;font-size:12px;font-weight:700;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:7px}
+.yt-chip i{color:#ff0000}
+.yt-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:#ff0000;color:#fff;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 24px rgba(255,0,0,.35)}
+.yt-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,0,0,.5)}
+.yt-panel{background:linear-gradient(135deg,#0d0000,#1a0000);border-radius:22px;border:2px solid rgba(255,0,0,.2);min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:40px 30px;text-align:center;position:relative;overflow:hidden}
+.yt-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,0,0,.07),transparent 70%);pointer-events:none}
+.yt-icon-wrap{width:90px;height:90px;background:#ff0000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;box-shadow:0 0 40px rgba(255,0,0,.5);animation:yt-pulse 2s ease-in-out infinite;position:relative;z-index:1}
+@keyframes yt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,.5)}50%{box-shadow:0 0 0 20px rgba(255,0,0,0)}}
+.yt-panel h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;position:relative;z-index:1}
+.yt-panel p{font-size:13px;color:rgba(255,255,255,.6);position:relative;z-index:1;max-width:280px}
+.yt-panel-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 28px;background:#ff0000;color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;position:relative;z-index:1;transition:all .3s}
+.yt-panel-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,0,0,.5)}
+.ind-sec{background:var(--bg2)}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.ind-card{padding:24px 16px;background:var(--glass);border:1px solid rgba(255,107,0,.12);border-radius:14px;text-align:center;transition:all .3s}
+.ind-card:hover{border-color:rgba(255,107,0,.3);background:rgba(255,107,0,.07);transform:translateY(-3px)}
+.ind-card i{font-size:26px;color:var(--a);margin-bottom:12px;display:block}
+.ind-card h4{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.ind-card p{font-size:12px;color:var(--gray)}
+.testi-sec{background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.testi-card{background:var(--glass);border:1px solid rgba(255,107,0,.12);border-radius:18px;padding:28px;position:relative;overflow:hidden;transition:all .3s}
+.testi-card:hover{border-color:rgba(255,107,0,.25);transform:translateY(-3px)}
+.testi-card::before{content:'\201C';position:absolute;top:14px;right:20px;font-size:70px;color:rgba(255,107,0,.1);font-family:serif;line-height:1}
+.t-stars{color:var(--a2);font-size:13px;margin-bottom:14px;display:flex;gap:3px}
+.testi-text{font-size:14px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:22px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--a),#c24f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px}
+.t-name{font-weight:700;font-size:14px}
+.t-role{font-size:12px;color:var(--gray)}
+.contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;margin-top:56px}
+.cinfo h3{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;margin-bottom:12px}
+.cinfo>p{color:var(--gray);font-size:15px;line-height:1.7;margin-bottom:26px}
+.ci-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.ci-icon{width:44px;height:44px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--a);flex-shrink:0}
+.ci-item h4{font-size:13px;font-weight:700;margin-bottom:4px;font-family:'Rajdhani',sans-serif}
+.ci-item p,.ci-item a{font-size:13px;color:var(--gray);text-decoration:none;transition:color .25s}
+.ci-item a:hover{color:var(--a2)}
+.cform{background:var(--glass);border:1px solid rgba(255,107,0,.15);border-radius:22px;padding:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:all .25s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--a);background:rgba(255,107,0,.05)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
+.fg select option{background:#120800;color:#fff}
+.fg textarea{height:95px;resize:vertical}
+.sub-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--a),#c24f00);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Inter',sans-serif}
+.sub-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,107,0,.45)}
+.map-sec{position:relative;height:420px}
+.map-sec iframe{width:100%;height:100%;border:none;display:block;filter:hue-rotate(200deg) saturate(.4) brightness(.55)}
+.map-ov{position:absolute;top:22px;left:22px;background:rgba(10,5,0,.94);border:1px solid rgba(255,107,0,.3);border-radius:14px;padding:14px 20px;backdrop-filter:blur(16px);z-index:5}
+.map-ov h4{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px}
+.map-ov p{font-size:12px;color:var(--gray)}
+footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 0 26px}
+.ft-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.ft-brand>p{font-size:13px;color:var(--gray);line-height:1.8;margin:14px 0 18px}
+.social-row{display:flex;gap:10px}
+.soc{width:38px;height:38px;background:var(--glass);border:1px solid rgba(255,107,0,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:16px;text-decoration:none;transition:all .25s}
+.soc:hover{background:var(--a);border-color:var(--a);color:#fff}
+.soc.yt:hover{background:#ff0000;border-color:#ff0000}
+.soc.wa:hover{background:#25d366;border-color:#25d366;color:#fff}
+.ft-col h4{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;color:#fff}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:9px}
+.ft-col ul li a{font-size:13px;color:var(--gray);text-decoration:none;transition:color .25s;display:flex;align-items:center;gap:7px}
+.ft-col ul li a::before{content:'›';color:var(--a);font-size:14px}
+.ft-col ul li a:hover{color:var(--a2)}
+.ft-ci{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px;font-size:13px;color:var(--gray)}
+.ft-ci i{color:var(--a);margin-top:2px;flex-shrink:0}
+.ft-bottom{border-top:1px solid rgba(255,107,0,.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p{font-size:13px;color:var(--gray)}
+.wa-float{position:fixed;bottom:82px;right:26px;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;text-decoration:none;z-index:998;animation:wa-p 2.5s infinite}
+@keyframes wa-p{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+#btt{position:fixed;bottom:24px;right:26px;width:46px;height:46px;background:linear-gradient(135deg,var(--a),#c24f00);border-radius:12px;border:none;color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;opacity:0;visibility:hidden;z-index:999}
+#btt.show{opacity:1;visibility:visible}
+#btt:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,0,.4)}
+@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(2,1fr)}.ft-grid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.ind-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero-c,.about-grid,.contact-grid,.yt-grid{grid-template-columns:1fr}.hero h1{font-size:40px}.svc-grid,.testi-grid,.gal-grid{grid-template-columns:1fr 1fr}.hero-vis{display:none}.about-badge{bottom:-14px;right:-10px}}
+@media(max-width:768px){.nav-links{display:none;flex-direction:column;position:fixed;inset:0;top:66px;background:rgba(10,5,0,.98);padding:26px 24px;z-index:999;gap:0}.nav-links.open{display:flex}.nav-links li{border-bottom:1px solid rgba(255,107,0,.1);width:100%}.nav-links a{display:block;padding:14px 0;font-size:15px}.nav-cta{display:none}.ham{display:block}.svc-grid,.gal-grid,.testi-grid,.prod-grid{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.hero-stats{flex-direction:column;gap:18px}.sec-title{font-size:30px}}
+</style>
+</head>
+<body>
+<div id="ldr"><i class="fas fa-cog ldr-g"></i><div class="ldr-t">AS Automation</div></div>
+<nav id="navbar">
+  <div class="nc">
+    <a href="#home" class="logo"><div class="logo-box">AS</div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li><li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li>
+      <li><a href="#youtube">YouTube</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919176742590?text=Hello%20AS%20Automation" target="_blank" class="nav-cta">Get Quote</a>
+    <button class="ham" id="ham"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<section class="hero" id="home">
+  <div class="hero-grid"></div><div class="hero-scan"></div>
+  <div class="hero-c">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="live"></span>Chennai's #1 Automation Supplier</div>
+      <h1>Industrial <span class="hl">Automation</span> Solutions That Deliver</h1>
+      <p class="hero-desc">From PLC systems to Servo drives — AS Automation supplies, installs and services the complete industrial automation stack. Authorized dealers for Delta, Siemens, Schneider, Mitsubishi &amp; Omron across Tamil Nadu.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-o"><i class="fas fa-paper-plane"></i>Get Free Quote</a>
+        <a href="https://wa.me/919176742590" target="_blank" class="btn-g"><i class="fab fa-whatsapp"></i>WhatsApp Now</a>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><h3>500+</h3><p>Projects Done</p></div>
+        <div class="h-stat"><h3>7+</h3><p>Top Brands</p></div>
+        <div class="h-stat"><h3>6+</h3><p>Years Active</p></div>
+        <div class="h-stat"><h3>24/7</h3><p>Support</p></div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="fc fc1"><div class="fc-val">24/7</div><div class="fc-lbl">Support Ready</div></div>
+      <div class="hero-main-card">
+        <div style="font-size:10px;color:var(--gray);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;font-family:'Rajdhani',sans-serif">Authorized Brands</div>
+        <div class="brand-grid">
+          <div class="b-chip">DELTA</div><div class="b-chip">SIEMENS</div><div class="b-chip">SCHNEIDER</div>
+          <div class="b-chip">MITSUBISHI</div><div class="b-chip">OMRON</div><div class="b-chip">MEAN WELL</div>
+        </div>
+        <div class="hero-cfoot">
+          <div><div class="hcf-lbl">Call Now</div><div class="hcf-val">+91 91767 42590</div></div>
+          <a href="https://wa.me/919176742590" target="_blank" class="wa-now"><i class="fab fa-whatsapp"></i>Chat</a>
+        </div>
+      </div>
+      <div class="fc fc2"><div class="fc-val">100%</div><div class="fc-lbl">Genuine Products</div></div>
+    </div>
+  </div>
+</section>
+<div class="ticker"><div class="ticker-track">
+  <span class="t-item">PLC Systems<span class="t-dot"></span></span><span class="t-item">HMI Panels<span class="t-dot"></span></span><span class="t-item">VFD &amp; Drives<span class="t-dot"></span></span><span class="t-item">Servo Systems<span class="t-dot"></span></span><span class="t-item">Sensors &amp; SMPS<span class="t-dot"></span></span><span class="t-item">Relay Boards<span class="t-dot"></span></span><span class="t-item">Encoders<span class="t-dot"></span></span><span class="t-item">Control Panels<span class="t-dot"></span></span><span class="t-item">SCADA Solutions<span class="t-dot"></span></span>
+  <span class="t-item">PLC Systems<span class="t-dot"></span></span><span class="t-item">HMI Panels<span class="t-dot"></span></span><span class="t-item">VFD &amp; Drives<span class="t-dot"></span></span><span class="t-item">Servo Systems<span class="t-dot"></span></span><span class="t-item">Sensors &amp; SMPS<span class="t-dot"></span></span>
+</div></div>
+<section class="about" id="about"><div class="container"><div class="about-grid">
+  <div class="about-img-wrap">
+    <img src="images/panel-01.jpg" alt="AS Automation PLC Control Panel" loading="lazy">
+    <div class="about-badge"><div class="ab-num">500+</div><div class="ab-lbl">Projects Done</div></div>
+  </div>
+  <div class="about-content">
+    <div class="sec-lbl">About Our Company</div>
+    <h2 class="sec-title">Your Trusted Partner in <span>Industrial Automation</span></h2>
+    <p>AS Automation Company Chennai is a leading supplier and service provider of industrial automation products. Established by <strong style="color:#fff">Mr. Azarudeen</strong> and <strong style="color:#fff">Mr. Selva Kumar</strong>, we have built a strong reputation across Tamil Nadu and South India.</p>
+    <p>Authorized dealers for <strong style="color:#fff">Delta, Siemens, Schneider Electric, Mitsubishi Electric, Omron, Mean Well, and Trinity Touch</strong> — delivering everything from basic sensors to complete PLC servo systems and custom control panels.</p>
+    <div class="about-feats">
+      <div class="af"><i class="fas fa-check-circle"></i>Genuine Products Only</div>
+      <div class="af"><i class="fas fa-headset"></i>Expert Tech Support</div>
+      <div class="af"><i class="fas fa-shipping-fast"></i>Fast Delivery</div>
+      <div class="af"><i class="fas fa-tags"></i>Competitive Rates</div>
+    </div>
+  </div>
+</div></div></section>
+<div class="brands-sec"><div class="container">
+  <div class="brands-lbl">Authorized Distributor For</div>
+  <div class="mq-wrap"><div class="mq-track">
+    <div class="brand-tag">DELTA</div><div class="brand-tag">SIEMENS</div><div class="brand-tag">SCHNEIDER ELECTRIC</div><div class="brand-tag">MITSUBISHI ELECTRIC</div><div class="brand-tag">OMRON</div><div class="brand-tag">MEAN WELL</div><div class="brand-tag">TRINITY TOUCH</div>
+    <div class="brand-tag">DELTA</div><div class="brand-tag">SIEMENS</div><div class="brand-tag">SCHNEIDER ELECTRIC</div><div class="brand-tag">MITSUBISHI ELECTRIC</div><div class="brand-tag">OMRON</div><div class="brand-tag">MEAN WELL</div><div class="brand-tag">TRINITY TOUCH</div>
+  </div></div>
+</div></div>
+<section class="products" id="products"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Our Products</div><h2 class="sec-title" style="text-align:center">Automation <span>Products</span> We Supply</h2><p class="sec-sub" style="text-align:center;max-width:600px;margin:0 auto">Complete range from leading global manufacturers — all genuine, all delivered fast</p></div>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-02.jpg" alt="PLC Systems" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=PLC%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-microchip"></i></div></div><div class="prod-body"><h3>PLC Systems</h3><p>Mitsubishi FX5U, Delta DVP, Siemens S7 and Omron PLCs for all industrial automation needs.</p><div class="prod-tags"><span class="p-tag">Mitsubishi</span><span class="p-tag">Delta</span><span class="p-tag">Siemens</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-05.jpg" alt="HMI Panels" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=HMI%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-desktop"></i></div></div><div class="prod-body"><h3>HMI / MMI Panels</h3><p>Touch screen panels for real-time monitoring, machine control and SCADA integration.</p><div class="prod-tags"><span class="p-tag">Touch Screen</span><span class="p-tag">SCADA</span><span class="p-tag">Trinity Touch</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-13.jpg" alt="VFD Drives" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=VFD%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-tachometer-alt"></i></div></div><div class="prod-body"><h3>VFD &amp; Drives</h3><p>Delta MS300, FVR-Micro and other VFDs for precise speed control and energy savings.</p><div class="prod-tags"><span class="p-tag">Delta VFD</span><span class="p-tag">FVR-Micro</span><span class="p-tag">Energy Save</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-08.jpg" alt="Sensors SMPS" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=Sensors%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-broadcast-tower"></i></div></div><div class="prod-body"><h3>Sensors &amp; SMPS</h3><p>Proximity, photoelectric sensors, Mean Well EDR &amp; Multispan 120W SMPS power supplies.</p><div class="prod-tags"><span class="p-tag">Mean Well</span><span class="p-tag">Multispan</span><span class="p-tag">120W SMPS</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-03.jpg" alt="Relay Boards" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=Relay%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-plug"></i></div></div><div class="prod-body"><h3>Relay Boards / Relays</h3><p>Industrial relay boards, Schneider TeSys contactors and motor protection relays.</p><div class="prod-tags"><span class="p-tag">Relay Boards</span><span class="p-tag">TeSys</span><span class="p-tag">Schneider</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-09.jpg" alt="Control Panel" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=Control%20Panel%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-server"></i></div></div><div class="prod-body"><h3>Control Panels</h3><p>Custom PLC control panels, MCC panels and automation panels with ABB and Schneider components.</p><div class="prod-tags"><span class="p-tag">PLC Panel</span><span class="p-tag">MCC</span><span class="p-tag">Custom Build</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-12.jpg" alt="Servo Systems" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=Servo%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-robot"></i></div></div><div class="prod-body"><h3>Servo Systems</h3><p>Mitsubishi MR-J servo drives and Omron servo systems for precision motion control.</p><div class="prod-tags"><span class="p-tag">Mitsubishi MR-J</span><span class="p-tag">Omron</span><span class="p-tag">Precision</span></div></div></div>
+    <div class="prod-card"><div class="prod-img"><img src="images/panel-10.jpg" alt="MCC Panel" loading="lazy"><div class="prod-img-ov"><a href="https://wa.me/919176742590?text=MCC%20Panel%20inquiry" target="_blank" class="prod-wa-btn"><i class="fab fa-whatsapp"></i>Enquire</a></div><div class="prod-icon-badge"><i class="fas fa-bolt"></i></div></div><div class="prod-body"><h3>MCC &amp; DB Panels</h3><p>Motor Control Centers and distribution boards with ABB contactors and Schneider MCBs.</p><div class="prod-tags"><span class="p-tag">ABB</span><span class="p-tag">Schneider MCB</span><span class="p-tag">MCC</span></div></div></div>
+  </div>
+</div></section>
+<section class="services" id="services"><div class="container">
+  <div style="text-align:center;margin-bottom:56px"><div class="sec-lbl" style="justify-content:center">Our Services</div><h2 class="sec-title" style="text-align:center">Professional <span>Services</span> We Provide</h2><p class="sec-sub" style="text-align:center;max-width:600px;margin:0 auto">End-to-end automation services from design to commissioning and ongoing support</p></div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-num">01</div><div class="svc-icon"><i class="fas fa-code"></i></div><h3>PLC Programming</h3><p>Expert programming for Mitsubishi FX/IQ-R, Delta DVP, Siemens S7 — ladder logic, structured text, FBD to your exact spec.</p></div>
+    <div class="svc-card"><div class="svc-num">02</div><div class="svc-icon"><i class="fas fa-desktop"></i></div><h3>SCADA &amp; HMI Setup</h3><p>Full SCADA development and HMI programming for real-time monitoring, data logging and process visualization.</p></div>
+    <div class="svc-card"><div class="svc-num">03</div><div class="svc-icon"><i class="fas fa-plug"></i></div><h3>Control Panel Fabrication</h3><p>Custom PLC/MCC control panels — design, wiring, termination and factory testing to industry standards.</p></div>
+    <div class="svc-card"><div class="svc-num">04</div><div class="svc-icon"><i class="fas fa-project-diagram"></i></div><h3>Turnkey Automation</h3><p>Complete turnkey projects from concept to commissioning — design, procurement, installation and site testing.</p></div>
+    <div class="svc-card"><div class="svc-num">05</div><div class="svc-icon"><i class="fas fa-wrench"></i></div><h3>Repair &amp; Maintenance</h3><p>Repair, troubleshooting and preventive maintenance for all PLCs, HMIs and VFDs to minimize production downtime.</p></div>
+    <div class="svc-card"><div class="svc-num">06</div><div class="svc-icon"><i class="fas fa-graduation-cap"></i></div><h3>Training &amp; Consulting</h3><p>Hands-on automation training for engineers and operators — PLC programming, HMI operation and panel maintenance.</p></div>
+  </div>
+</div></section>
+<section class="why"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Why Choose Us</div><h2 class="sec-title" style="text-align:center">The AS Automation <span>Advantage</span></h2></div>
+  <div class="why-grid">
+    <div class="why-card"><i class="fas fa-certificate"></i><h4>Authorized Dealer</h4><p>Genuine products from Delta, Siemens, Schneider, Mitsubishi, Omron, Mean Well &amp; more</p></div>
+    <div class="why-card"><i class="fas fa-headset"></i><h4>Expert Support</h4><p>Dedicated technical team for product selection, commissioning and 24/7 after-sales support</p></div>
+    <div class="why-card"><i class="fas fa-shipping-fast"></i><h4>Fast Delivery</h4><p>Quick dispatch from stock for standard items, fast procurement for specialized components</p></div>
+    <div class="why-card"><i class="fas fa-tags"></i><h4>Best Prices</h4><p>Highly competitive pricing with no compromise on quality — best value for your investment</p></div>
+  </div>
+</div></section>
+<!-- GALLERY WITH YOUR 17 REAL PHOTOS -->
+<section class="gallery" id="gallery"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Real Project Gallery</div>
+    <h2 class="sec-title" style="text-align:center">Our <span>Actual Work</span> — Real Projects</h2>
+    <p class="sec-sub" style="text-align:center;max-width:600px;margin:0 auto">These are real PLC control panels, relay boards, servo systems and automation projects built and delivered by AS Automation</p>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" onclick="openLB(0)"><img src="images/panel-01.jpg" alt="PLC Control Panel with Mitsubishi, SMPS and Servo" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Full PLC Panel</h4><p>Mitsubishi + Servo + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(1)"><img src="images/panel-02.jpg" alt="Mitsubishi FX5U PLC with Relay Boards" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Mitsubishi FX5U Panel</h4><p>PLC + Relay Boards + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(2)"><img src="images/panel-03.jpg" alt="Delta VFD MS300 with ABB Contactors" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Delta VFD MS300 Panel</h4><p>VFD + ABB Contactors + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(3)"><img src="images/panel-04.jpg" alt="VFD Panel with Relay Board" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>VFD Control Panel</h4><p>FVR-Micro + Relay Board</p></div></div>
+    <div class="gal-item" onclick="openLB(4)"><img src="images/panel-05.jpg" alt="Mitsubishi PLC Relay Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Mitsubishi PLC Panel</h4><p>PLC + Relay + Terminal Blocks</p></div></div>
+    <div class="gal-item" onclick="openLB(5)"><img src="images/panel-06.jpg" alt="Schneider TeSys Contactor Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Schneider Contactor Panel</h4><p>TeSys + Omron SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(6)"><img src="images/panel-07.jpg" alt="VFD FVR Relay Panel with Terminal Blocks" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>VFD + Relay System</h4><p>FVR + Schneider + Relays</p></div></div>
+    <div class="gal-item" onclick="openLB(7)"><img src="images/panel-08.jpg" alt="Mitsubishi PLC Mean Well SMPS Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>PLC + Mean Well EDR-120</h4><p>Mitsubishi FX5U + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(8)"><img src="images/panel-09.jpg" alt="Mitsubishi PLC Servo SMPS Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>PLC + Servo System</h4><p>Mitsubishi FX5U-64M + MR-J</p></div></div>
+    <div class="gal-item" onclick="openLB(9)"><img src="images/panel-10.jpg" alt="Large ABB MCC Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>ABB MCC Panel</h4><p>PLC + ABB Contactors + MCB</p></div></div>
+    <div class="gal-item" onclick="openLB(10)"><img src="images/panel-11.jpg" alt="PLC Panel with Schneider MCBs" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>PLC Control Panel</h4><p>Mitsubishi + Schneider + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(11)"><img src="images/panel-12.jpg" alt="PLC Panel with Omron SMPS" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>PLC + Omron SMPS</h4><p>Mitsubishi FX5U-64M + EDR-120</p></div></div>
+  </div>
+  <!-- Load More Button -->
+  <div style="text-align:center;margin-top:32px">
+    <button onclick="loadMoreGallery()" id="loadMoreBtn" class="btn-o" style="display:inline-flex"><i class="fas fa-images"></i>View All 17 Photos</button>
+  </div>
+  <!-- Extra photos hidden initially -->
+  <div class="gal-grid" id="extraGallery" style="display:none;margin-top:14px">
+    <div class="gal-item" onclick="openLB(12)"><img src="images/panel-13.jpg" alt="Delta VFD MS300 Relay Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Delta MS300 VFD Panel</h4><p>VFD + Relay + SMPS Multispan</p></div></div>
+    <div class="gal-item" onclick="openLB(13)"><img src="images/panel-14.jpg" alt="Schneider Forward Reverse Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Forward / Reverse Panel</h4><p>5x Schneider TeSys FWD/REV</p></div></div>
+    <div class="gal-item" onclick="openLB(14)"><img src="images/panel-15.jpg" alt="Delta DVP Panel with Relay" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Delta DVP Panel</h4><p>Delta PLC + Relay Board</p></div></div>
+    <div class="gal-item" onclick="openLB(15)"><img src="images/panel-16.jpg" alt="Delta PLC Panel with SMPS" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Delta PLC Panel</h4><p>Delta DVP + ABB + SMPS</p></div></div>
+    <div class="gal-item" onclick="openLB(16)"><img src="images/panel-17.jpg" alt="Full Automation Control Panel" loading="lazy"><div class="gal-ov"><div class="gal-zoom"><i class="fas fa-search-plus"></i></div><h4>Full Automation Panel</h4><p>Complete PLC Panel Build</p></div></div>
+  </div>
+</div></section>
+<!-- LIGHTBOX WITH THUMBNAILS -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLB()"><i class="fas fa-times"></i></button>
+  <button class="lb-nav lb-prev" onclick="changeLB(-1)"><i class="fas fa-chevron-left"></i></button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" onclick="changeLB(1)"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-cap" id="lbCap"></div>
+  <div class="lb-counter" id="lbCounter"></div>
+  <div class="lb-thumbs" id="lbThumbs"></div>
+</div>
+<section class="yt-sec" id="youtube"><div class="container">
+  <div style="text-align:center;margin-bottom:56px"><div class="sec-lbl" style="justify-content:center">YouTube</div><h2 class="sec-title" style="text-align:center">Watch Our <span style="color:#ff0000">YouTube</span> Channel</h2><p class="sec-sub" style="text-align:center;max-width:580px;margin:0 auto">PLC programming tutorials, project demos and automation guides — all free</p></div>
+  <div class="yt-grid">
+    <div class="yt-content">
+      <h3>AS Automation on YouTube</h3>
+      <p>Stay updated with our latest automation projects, PLC programming tutorials, product reviews and hands-on automation guides. Subscribe for free and learn from industry experts.</p>
+      <div class="yt-chips">
+        <div class="yt-chip"><i class="fas fa-play-circle"></i>PLC Programming</div>
+        <div class="yt-chip"><i class="fas fa-cog"></i>Panel Build Videos</div>
+        <div class="yt-chip"><i class="fas fa-graduation-cap"></i>Free Tutorials</div>
+        <div class="yt-chip"><i class="fas fa-bell"></i>Subscribe Free</div>
+      </div>
+      <a href="https://youtube.com/@asautomation2018" target="_blank" class="yt-btn"><i class="fab fa-youtube"></i>Visit &amp; Subscribe Now</a>
+    </div>
+    <div class="yt-panel">
+      <div class="yt-icon-wrap"><i class="fab fa-youtube"></i></div>
+      <h3>AS Automation YouTube</h3>
+      <p>PLC tutorials, automation project demos, panel builds — all free to watch and learn from.</p>
+      <a href="https://youtube.com/@asautomation2018" target="_blank" class="yt-panel-btn"><i class="fab fa-youtube"></i>Open Channel</a>
+    </div>
+  </div>
+</div></section>
+<section class="ind-sec"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Industries</div><h2 class="sec-title" style="text-align:center">Industries We <span>Serve</span></h2></div>
+  <div class="ind-grid">
+    <div class="ind-card"><i class="fas fa-car"></i><h4>Automotive</h4><p>Assembly line automation</p></div>
+    <div class="ind-card"><i class="fas fa-tshirt"></i><h4>Textile</h4><p>Weaving and spinning control</p></div>
+    <div class="ind-card"><i class="fas fa-utensils"></i><h4>Food Processing</h4><p>Packaging automation</p></div>
+    <div class="ind-card"><i class="fas fa-pills"></i><h4>Pharma</h4><p>Precision manufacturing</p></div>
+    <div class="ind-card"><i class="fas fa-box"></i><h4>Packaging</h4><p>Conveyor &amp; filling systems</p></div>
+    <div class="ind-card"><i class="fas fa-cube"></i><h4>Plastic</h4><p>Injection molding automation</p></div>
+    <div class="ind-card"><i class="fas fa-flask"></i><h4>Chemical</h4><p>Process control &amp; monitoring</p></div>
+    <div class="ind-card"><i class="fas fa-industry"></i><h4>Steel &amp; Heavy</h4><p>Heavy machinery automation</p></div>
+  </div>
+</div></section>
+<section class="testi-sec"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Testimonials</div><h2 class="sec-title" style="text-align:center">What Our <span>Clients</span> Say</h2></div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testi-text">AS Automation built and delivered a full PLC control panel for our textile unit. The Mitsubishi PLC programming was perfect first time. Highly professional and fast delivery!</p><div class="testi-author"><div class="t-avatar">RK</div><div><div class="t-name">Rajesh Kumar</div><div class="t-role">Director, Sri Lakshmi Textiles</div></div></div></div>
+    <div class="testi-card"><div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testi-text">Outstanding MCC panel fabrication with ABB components. Their Delta VFD and Schneider contactor work was excellent — very competitive pricing in Chennai.</p><div class="testi-author"><div class="t-avatar">SM</div><div><div class="t-name">Suresh Murthy</div><div class="t-role">Plant Manager, Auto Components Ltd</div></div></div></div>
+    <div class="testi-card"><div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="testi-text">Using AS Automation for 3 years. Their after-sales support is excellent — quick response for Mitsubishi FX parts and technical support whenever we need it.</p><div class="testi-author"><div class="t-avatar">VP</div><div><div class="t-name">Venkatesh Prasad</div><div class="t-role">CEO, Prasad Packaging Industries</div></div></div></div>
+  </div>
+</div></section>
+<section class="contact" id="contact"><div class="container">
+  <div style="text-align:center"><div class="sec-lbl" style="justify-content:center">Contact Us</div><h2 class="sec-title" style="text-align:center">Get In <span>Touch</span> With Us</h2><p class="sec-sub" style="text-align:center;max-width:600px;margin:0 auto">Call, WhatsApp or email us for product inquiries, quotations and technical support</p></div>
+  <div class="contact-grid">
+    <div class="cinfo">
+      <h3>Contact Information</h3>
+      <p>We are here to help with all your automation needs. Contact us today for a free consultation and quote.</p>
+      <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Address</h4><p>AS Automation Company, Chennai, Tamil Nadu, India</p></div></div>
+      <div class="ci-item"><div class="ci-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Phone</h4><p><a href="tel:+919176742590">+91 91767 42590</a> (Mr. Azarudeen)<br><a href="tel:+918760675638">+91 87606 75638</a> (Mr. Selva Kumar)</p></div></div>
+      <div class="ci-item"><div class="ci-icon" style="background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.25);color:#25d366"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/919176742590" target="_blank">+91 91767 42590</a> — tap to chat now</p></div></div>
+      <div class="ci-item"><div class="ci-icon" style="color:#ff0000;background:rgba(255,0,0,.08);border-color:rgba(255,0,0,.2)"><i class="fab fa-youtube"></i></div><div><h4>YouTube</h4><p><a href="https://youtube.com/@asautomation2018" target="_blank">youtube.com/@asautomation2018</a></p></div></div>
+      <div class="ci-item"><div class="ci-icon"><i class="fas fa-clock"></i></div><div><h4>Business Hours</h4><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p></div></div>
+    </div>
+    <div class="cform">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="fg"><label>Your Name</label><input type="text" id="cname" placeholder="Enter your name" required></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" id="cphone" placeholder="+91 XXXXX XXXXX" required></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" id="cemail" placeholder="your@email.com" required></div>
+        <div class="fg"><label>Product / Service</label>
+          <select id="cproduct" required><option value="">Select Category</option><option>PLC Systems</option><option>HMI / MMI Panels</option><option>VFD &amp; Drives</option><option>Sensors &amp; SMPS</option><option>Relay Boards</option><option>Servo Systems</option><option>Control Panel Fabrication</option><option>PLC Programming / SCADA</option><option>Service &amp; Repair</option><option>Other</option></select>
+        </div>
+        <div class="fg"><label>Message</label><textarea id="cmsg" placeholder="Tell us about your requirements..."></textarea></div>
+        <button type="submit" class="sub-btn" id="subBtn"><i class="fab fa-whatsapp"></i>Send via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+<!-- SINGLE MAP -->
+<div class="map-sec">
+  <div class="map-ov"><h4><i class="fas fa-map-marker-alt" style="color:var(--a);margin-right:6px"></i>Chennai, Tamil Nadu</h4><p>Serving across South India</p></div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.13131228785!2d80.04419815384617!3d13.047473316444392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b8ed84f75!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy" title="AS Automation Chennai"></iframe>
+</div>
+<footer><div class="container">
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="#home" class="logo"><div class="logo-box">AS</div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
+      <p>Your trusted partner for industrial automation — PLC, HMI, VFD, Servo, control panel fabrication and services across Tamil Nadu and South India.</p>
+      <div class="social-row">
+        <a href="https://youtube.com/@asautomation2018" target="_blank" class="soc yt"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/919176742590" target="_blank" class="soc wa"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:info@asautomationchennai.com" class="soc"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Quick Links</h4><ul>
+      <li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li>
+      <li><a href="#products">Products</a></li><li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Products</h4><ul>
+      <li><a href="#products">PLC Systems</a></li><li><a href="#products">HMI Panels</a></li>
+      <li><a href="#products">VFD &amp; Drives</a></li><li><a href="#products">Sensors &amp; SMPS</a></li>
+      <li><a href="#products">Servo Systems</a></li><li><a href="#products">Control Panels</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Contact Info</h4>
+      <div class="ft-ci"><i class="fas fa-phone"></i><span>+91 91767 42590 (Azarudeen)</span></div>
+      <div class="ft-ci"><i class="fas fa-phone"></i><span>+91 87606 75638 (Selva Kumar)</span></div>
+      <div class="ft-ci"><i class="fas fa-envelope"></i><span>info@asautomationchennai.com</span></div>
+      <div class="ft-ci"><i class="fas fa-map-marker-alt"></i><span>Chennai, Tamil Nadu, India</span></div>
+      <div class="ft-ci"><i class="fas fa-clock"></i><span>Mon–Sat: 9:00 AM – 7:00 PM</span></div>
+    </div>
+  </div>
+  <div class="ft-bottom"><p>&copy; 2026 AS Automation Company Chennai. All Rights Reserved.</p><p>Made with <i class="fas fa-heart" style="color:var(--a)"></i> in Chennai</p></div>
+</div></footer>
+<a href="https://wa.me/919176742590?text=Hello%20AS%20Automation" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+<button id="btt"><i class="fas fa-arrow-up"></i></button>
+<script>
+// All 17 real photos data
+var lbData=[
+  {s:"images/panel-01.jpg",c:"Full PLC Control Panel — Mitsubishi FX5U + Servo Drive + SMPS + Relay"},
+  {s:"images/panel-02.jpg",c:"Mitsubishi FX5U PLC Panel — Relay Boards + Multispan 120W SMPS"},
+  {s:"images/panel-03.jpg",c:"Delta MS300 VFD Panel — ABB Contactors + Relay Boards + SMPS"},
+  {s:"images/panel-04.jpg",c:"VFD Control Panel — FVR-Micro Drive + Relay Board + Terminal Blocks"},
+  {s:"images/panel-05.jpg",c:"Mitsubishi PLC Panel — Relay Boards + Schneider MCB + Terminal Blocks"},
+  {s:"images/panel-06.jpg",c:"Schneider TeSys Contactor Panel — Omron SMPS + Relay Module"},
+  {s:"images/panel-07.jpg",c:"VFD + Relay System — FVR-Micro + Schneider + Mean Well SMPS"},
+  {s:"images/panel-08.jpg",c:"Mitsubishi PLC Panel — Mean Well EDR-120-24 + Relay Boards"},
+  {s:"images/panel-09.jpg",c:"Mitsubishi FX5U-64M PLC + Servo System — Complete Automation Panel"},
+  {s:"images/panel-10.jpg",c:"Large ABB MCC Panel — PLC + ABB Contactors + MCBs + Terminal Blocks"},
+  {s:"images/panel-11.jpg",c:"Mitsubishi PLC Panel — Schneider MCB + Mean Well NDR-240-24 SMPS"},
+  {s:"images/panel-12.jpg",c:"Mitsubishi FX5U-64M + Omron SMPS + EDR-120-12 Mean Well Panel"},
+  {s:"images/panel-13.jpg",c:"Delta MS300 VFD + ABB Contactors + Multispan 120W SMPS Panel"},
+  {s:"images/panel-14.jpg",c:"5-Motor Forward/Reverse Panel — Schneider TeSys Contactors"},
+  {s:"images/panel-15.jpg",c:"Delta DVP PLC Panel — Relay Board + ABB MCBs + Terminal Blocks"},
+  {s:"images/panel-16.jpg",c:"Delta DVP PLC Panel — ABB Components + Open Frame SMPS"},
+  {s:"images/panel-17.jpg",c:"Complete Automation Panel — Full PLC Control Build"}
+];
+var curI=0,allLoaded=false;
+function openLB(i){
+  curI=i;
+  buildThumbs();
+  updateLB();
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function buildThumbs(){
+  var c=document.getElementById('lbThumbs');
+  if(c.children.length>0)return;
+  lbData.forEach(function(d,i){
+    var t=document.createElement('div');
+    t.className='lb-thumb';
+    t.onclick=function(){curI=i;updateLB()};
+    var img=document.createElement('img');
+    img.src=d.s;img.alt='thumb';
+    t.appendChild(img);
+    c.appendChild(t);
+  });
+}
+function updateLB(){
+  document.getElementById('lbImg').src=lbData[curI].s;
+  document.getElementById('lbCap').textContent=lbData[curI].c;
+  document.getElementById('lbCounter').textContent=(curI+1)+' / '+lbData.length;
+  document.querySelectorAll('.lb-thumb').forEach(function(t,i){t.classList.toggle('active',i===curI)});
+  var thumbs=document.getElementById('lbThumbs');
+  var activeThumb=thumbs.children[curI];
+  if(activeThumb)activeThumb.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+}
+function closeLB(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''}
+function changeLB(d){curI=(curI+d+lbData.length)%lbData.length;updateLB()}
+try{
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB()});
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('lightbox').classList.contains('active'))return;
+  if(e.key==='Escape')closeLB();
+  if(e.key==='ArrowLeft')changeLB(-1);
+  if(e.key==='ArrowRight')changeLB(1);
+});
+}catch(e){}
+function loadMoreGallery(){
+  var extra=document.getElementById('extraGallery');
+  var btn=document.getElementById('loadMoreBtn');
+  if(!allLoaded){
+    extra.style.display='grid';
+    btn.innerHTML='<i class="fas fa-chevron-up"></i>Show Less';
+    allLoaded=true;
+  } else {
+    extra.style.display='none';
+    btn.innerHTML='<i class="fas fa-images"></i>View All 17 Photos';
+    allLoaded=false;
+  }
+}
+// Nav & loader (multiple independent safety nets so it can never get stuck)
+function hideLoader(){var l=document.getElementById('ldr');if(l)l.classList.add('gone')}
+try{ document.addEventListener('DOMContentLoaded', function(){ setTimeout(hideLoader, 300); }); }catch(e){}
+try{ window.addEventListener('load', function(){ setTimeout(hideLoader, 300); }); }catch(e){}
+setTimeout(hideLoader, 1800); // hard fallback no matter what
+
+try{
+var nb=document.getElementById('navbar');
+window.addEventListener('scroll',function(){nb.classList.toggle('scrolled',window.scrollY>50)});
+}catch(e){}
+try{
+var ham=document.getElementById('ham'),nl=document.getElementById('navLinks');
+ham.addEventListener('click',function(){nl.classList.toggle('open');ham.innerHTML=nl.classList.contains('open')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>'});
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');ham.innerHTML='<i class="fas fa-bars"></i>'})});
+}catch(e){}
+try{
+var secs=document.querySelectorAll('section[id]'),navIs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',function(){var c='';secs.forEach(function(s){if(window.scrollY>=s.offsetTop-120)c=s.id});navIs.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+c)})});
+}catch(e){}
+try{
+var btt=document.getElementById('btt');
+window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400)});
+btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+}catch(e){}
+</script>
+</body>
+</html>
