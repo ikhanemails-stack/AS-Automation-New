@@ -12,6 +12,37 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root{--bg:#0a0500;--bg2:#120800;--a:#ff6b00;--a2:#ff8c00;--a3:#ffaa00;--white:#fff;--gray:#9a8878;--border:rgba(255,107,0,.15);--glass:rgba(255,107,0,.05)}
+html[data-theme="blue"]{--bg:#00060f;--bg2:#010f1e;--a:#0091ff;--a2:#00b8ff;--a3:#5fd4ff;--gray:#87a0b8;--border:rgba(0,145,255,.15);--glass:rgba(0,145,255,.05)}
+html[data-theme="green"]{--bg:#020e04;--bg2:#031a07;--a:#00c853;--a2:#22e070;--a3:#7dffb0;--gray:#8fb89c;--border:rgba(0,200,83,.15);--glass:rgba(0,200,83,.05)}
+html[data-theme="purple"]{--bg:#0b0014;--bg2:#160021;--a:#a238d1;--a2:#c266e8;--a3:#e2a6ff;--gray:#ab97bd;--border:rgba(162,56,209,.15);--glass:rgba(162,56,209,.05)}
+html[data-theme="red"]{--bg:#140202;--bg2:#1f0505;--a:#ff3b3b;--a2:#ff6161;--a3:#ff9d9d;--gray:#b89191;--border:rgba(255,59,59,.15);--glass:rgba(255,59,59,.05)}
+html{scroll-behavior:smooth}
+body{transition:background .4s}
+.logo-fallback{background:linear-gradient(135deg,var(--a),#c24f00)!important;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;color:#fff!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.svc-card,.prod-card,.testi-card,.ind-card,.why-card,.gal-item{transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .4s,background .4s}
+.svc-card:hover,.prod-card:hover,.testi-card:hover,.ind-card:hover,.why-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px -12px rgba(0,0,0,.5);border-color:var(--a)}
+.gal-item:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 45px -10px rgba(0,0,0,.6)}
+.b-chip{transition:transform .35s,border-color .35s,background .35s}
+.b-chip:hover{transform:translateY(-4px) scale(1.04);border-color:var(--a)}
+.hero h1 .hl{background-size:200% auto;animation:gradShift 5s ease infinite}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.theme-fab{position:fixed;bottom:26px;left:26px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--a2));border:none;cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.theme-fab:hover{transform:rotate(25deg) scale(1.08)}
+.theme-panel{position:fixed;bottom:90px;left:26px;background:rgba(10,5,0,.97);border:1px solid var(--border);border-radius:16px;padding:14px;z-index:1000;display:none;flex-direction:column;gap:10px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.theme-panel.open{display:flex}
+.theme-panel .tp-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);font-weight:700;font-family:'Rajdhani',sans-serif}
+.theme-row{display:flex;gap:10px}
+.theme-dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:2px solid rgba(255,255,255,.15);position:relative}
+.theme-dot:hover{transform:scale(1.15)}
+.theme-dot.active::after{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.theme-dot[data-t="orange"]{background:linear-gradient(135deg,#ff6b00,#ffaa00)}
+.theme-dot[data-t="blue"]{background:linear-gradient(135deg,#0091ff,#5fd4ff)}
+.theme-dot[data-t="green"]{background:linear-gradient(135deg,#00c853,#7dffb0)}
+.theme-dot[data-t="purple"]{background:linear-gradient(135deg,#a238d1,#e2a6ff)}
+.theme-dot[data-t="red"]{background:linear-gradient(135deg,#ff3b3b,#ff9d9d)}
+@media(max-width:768px){.theme-fab{width:44px;height:44px;font-size:16px;bottom:20px;left:20px}.theme-panel{bottom:74px;left:20px}}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.6}
@@ -28,6 +59,13 @@ nav.scrolled{background:rgba(10,5,0,.97);backdrop-filter:blur(30px);border-botto
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-box{width:50px;height:50px;display:flex;align-items:center;justify-content:center;animation:lp 3s infinite}
 .logo-box img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 6px rgba(255,107,0,.5))}
+.nav-social{display:flex;align-items:center;gap:8px;margin-left:18px;padding-left:18px;border-left:1px solid rgba(255,107,0,.18)}
+.nsoc{width:30px;height:30px;border-radius:8px;background:rgba(255,107,0,.06);border:1px solid rgba(255,107,0,.18);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:13px;text-decoration:none;transition:all .25s}
+.nsoc:hover{color:#fff;transform:translateY(-2px)}
+.nsoc-wa:hover{background:#25d366;border-color:#25d366}
+.nsoc-ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743}
+.nsoc-yt:hover{background:#ff0000;border-color:#ff0000}
+@media(max-width:900px){.nav-social{display:none}}
 @keyframes lp{0%,100%{box-shadow:0 0 0 0 rgba(255,107,0,.4)}50%{box-shadow:0 0 0 12px rgba(255,107,0,0)}}
 .logo-txt h1{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1.1}
 .logo-txt span{font-size:9px;color:var(--a2);letter-spacing:3px;text-transform:uppercase;font-weight:600}
@@ -74,7 +112,7 @@ nav.scrolled{background:rgba(10,5,0,.97);backdrop-filter:blur(30px);border-botto
 .wa-now:hover{background:#1db954;transform:scale(1.04)}
 .fc{position:absolute;background:rgba(10,5,0,.95);border:1px solid rgba(255,107,0,.25);border-radius:14px;padding:14px 18px;z-index:5;min-width:110px}
 .fc.fc1{top:-20px;right:-24px;animation:flt 4s ease-in-out infinite}
-.fc.fc2{bottom:20px;left:-32px;animation:flt 4s ease-in-out infinite 2s}
+.fc.fc2{bottom:-55px;left:-28px;animation:flt 4s ease-in-out infinite 2s}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .fc-val{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;color:var(--a2);line-height:1}
 .fc-lbl{font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
@@ -241,6 +279,7 @@ footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 
 .soc:hover{background:var(--a);border-color:var(--a);color:#fff}
 .soc.yt:hover{background:#ff0000;border-color:#ff0000}
 .soc.wa:hover{background:#25d366;border-color:#25d366;color:#fff}
+.soc.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743;color:#fff}
 .ft-col h4{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;color:#fff}
 .ft-col ul{list-style:none}
 .ft-col ul li{margin-bottom:9px}
@@ -262,10 +301,16 @@ footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 
 </style>
 </head>
 <body>
+<script>try{var t=localStorage.getItem('as-theme');if(t&&t!=='orange')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <div id="ldr"><i class="fas fa-cog ldr-g"></i><div class="ldr-t">AS Automation</div></div>
 <nav id="navbar">
   <div class="nc">
-    <a href="#home" class="logo"><div class="logo-box"><img src="images/logo.png" alt="AS Automation Logo"></div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
+    <a href="#home" class="logo"><div class="logo-box"><img src="images/logo.png" alt="AS Automation Logo" onerror="this.onerror=null;this.remove();this.parentElement.textContent='AS';this.parentElement.classList.add('logo-fallback')"></div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
+    <div class="nav-social">
+      <a href="https://wa.me/919176742590" target="_blank" class="nsoc nsoc-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/as_automation_2.0" target="_blank" class="nsoc nsoc-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@asautomation2018" target="_blank" class="nsoc nsoc-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li><li><a href="#products">Products</a></li>
       <li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li>
@@ -467,6 +512,7 @@ footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 
       <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Address</h4><p>AS Automation Company, Chennai, Tamil Nadu, India</p></div></div>
       <div class="ci-item"><div class="ci-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Phone</h4><p><a href="tel:+919176742590">+91 91767 42590</a> (Mr. Azarudeen)<br><a href="tel:+918760675638">+91 87606 75638</a> (Mr. Selva Kumar)</p></div></div>
       <div class="ci-item"><div class="ci-icon" style="background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.25);color:#25d366"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/919176742590" target="_blank">+91 91767 42590</a> — tap to chat now</p></div></div>
+      <div class="ci-item"><div class="ci-icon" style="color:#e1306c;background:rgba(225,48,108,.08);border-color:rgba(225,48,108,.2)"><i class="fab fa-instagram"></i></div><div><h4>Instagram</h4><p><a href="https://www.instagram.com/as_automation_2.0" target="_blank">@as_automation_2.0</a></p></div></div>
       <div class="ci-item"><div class="ci-icon" style="color:#ff0000;background:rgba(255,0,0,.08);border-color:rgba(255,0,0,.2)"><i class="fab fa-youtube"></i></div><div><h4>YouTube</h4><p><a href="https://youtube.com/@asautomation2018" target="_blank">youtube.com/@asautomation2018</a></p></div></div>
       <div class="ci-item"><div class="ci-icon"><i class="fas fa-clock"></i></div><div><h4>Business Hours</h4><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p></div></div>
     </div>
@@ -494,10 +540,11 @@ footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 
 <footer><div class="container">
   <div class="ft-grid">
     <div class="ft-brand">
-      <a href="#home" class="logo"><div class="logo-box"><img src="images/logo.png" alt="AS Automation Logo"></div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
+      <a href="#home" class="logo"><div class="logo-box"><img src="images/logo.png" alt="AS Automation Logo" onerror="this.onerror=null;this.remove();this.parentElement.textContent='AS';this.parentElement.classList.add('logo-fallback')"></div><div class="logo-txt"><h1>AS AUTOMATION</h1><span>Company Chennai</span></div></a>
       <p>Your trusted partner for industrial automation — PLC, HMI, VFD, Servo, control panel fabrication and services across Tamil Nadu and South India.</p>
       <div class="social-row">
         <a href="https://youtube.com/@asautomation2018" target="_blank" class="soc yt"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/as_automation_2.0" target="_blank" class="soc ig"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/919176742590" target="_blank" class="soc wa"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:info@asautomationchennai.com" class="soc"><i class="fas fa-envelope"></i></a>
       </div>
@@ -523,6 +570,18 @@ footer{background:#050200;border-top:1px solid rgba(255,107,0,.12);padding:60px 
   <div class="ft-bottom"><p>&copy; 2026 AS Automation Company Chennai. All Rights Reserved.</p><p>Made with <i class="fas fa-heart" style="color:var(--a)"></i> in Chennai</p></div>
 </div></footer>
 <a href="https://wa.me/919176742590?text=Hello%20AS%20Automation" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+<button class="theme-fab" id="themeFab" aria-label="Change color theme"><i class="fas fa-palette"></i></button>
+<div class="theme-panel" id="themePanel">
+  <div class="tp-lbl">Choose Theme</div>
+  <div class="theme-row">
+    <div class="theme-dot active" data-t="orange" title="Orange (Default)"></div>
+    <div class="theme-dot" data-t="blue" title="Electric Blue"></div>
+    <div class="theme-dot" data-t="green" title="Emerald Green"></div>
+    <div class="theme-dot" data-t="purple" title="Royal Purple"></div>
+    <div class="theme-dot" data-t="red" title="Crimson Red"></div>
+  </div>
+</div>
 <button id="btt"><i class="fas fa-arrow-up"></i></button>
 <script>
 // All 17 real photos data
@@ -622,6 +681,39 @@ try{
 var btt=document.getElementById('btt');
 window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400)});
 btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+}catch(e){}
+
+// Theme switcher
+try{
+var savedTheme=localStorage.getItem('as-theme');
+if(savedTheme && savedTheme!=='orange'){document.documentElement.setAttribute('data-theme',savedTheme);}
+var themeFab=document.getElementById('themeFab'),themePanel=document.getElementById('themePanel'),themeDots=document.querySelectorAll('.theme-dot');
+function setActiveDot(t){themeDots.forEach(function(d){d.classList.toggle('active',d.getAttribute('data-t')===t)});}
+setActiveDot(savedTheme||'orange');
+themeFab.addEventListener('click',function(e){e.stopPropagation();themePanel.classList.toggle('open')});
+document.addEventListener('click',function(e){if(!themePanel.contains(e.target) && e.target!==themeFab)themePanel.classList.remove('open')});
+themeDots.forEach(function(dot){
+  dot.addEventListener('click',function(){
+    var t=dot.getAttribute('data-t');
+    if(t==='orange'){document.documentElement.removeAttribute('data-theme');}
+    else{document.documentElement.setAttribute('data-theme',t);}
+    localStorage.setItem('as-theme',t);
+    setActiveDot(t);
+  });
+});
+}catch(e){}
+
+// Scroll reveal animations
+try{
+var revealSelectors='.svc-card,.prod-card,.testi-card,.ind-card,.why-card,.gal-item,.h-stat,.ci-item,.about-content,.about-img-wrap,.sec-lbl,.sec-title';
+var revealEls=document.querySelectorAll(revealSelectors);
+revealEls.forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(Math.min(i%6,5)*0.08)+'s';});
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}
+  });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(function(el){io.observe(el);});
 }catch(e){}
 </script>
 </body>
